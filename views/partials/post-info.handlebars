@@ -1,13 +1,10 @@
-<section class="card-post">
-    <div class="card-post-header">
-        <div class="title">
-            <a href="/post/{{id}}" class="card-link">{{title}}</a>
-        </div>
-        <div class="meta">
-            Posted by {{user.username}} on {{format_date created_at}}
-        </div>
+<article class="post">
+    <div class="title">
+        <span><a href="/post/{{id}}">{{title}}</a></span><span style="float:right">Posted by {{user.username}} on
+            {{format_date created_at}}</span><br>
+        <span style="float:right">{{comments.length}} {{format_plural "comment" comments.length}}</span>
     </div>
     <div class="content">
-        <p>{{post_content}}</p>
+        <p>{{post_text}}</p>
     </div>
-</section>
+</article>

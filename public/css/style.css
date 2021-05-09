@@ -1,7 +1,7 @@
 
 :root{
-    --primary-color: #333;
-    --secondary-color: #e6ffe6;
+    --primary-color: #120411;
+    --secondary-color: white;
   }
 
   * {
@@ -18,17 +18,17 @@
 
     a {
       text-decoration: none;
-      color: #225ca3;
+      color:#120411;
       font-weight: bold;
       transition: color .1s;
     }
 
     a:hover {
-      color: #3486eb;
+      color: #4B0082;
     }
 
     button {
-      background-color: #225ca3;
+      background-color: #4B0082;
       border: 0;
       padding: 1%;
       color: white;

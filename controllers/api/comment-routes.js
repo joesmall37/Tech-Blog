@@ -1,37 +1,45 @@
+// Dependencies
+// Express.js connection
 const router = require('express').Router();
+// Comment model
 const { Comment } = require('../../models');
+// Authorization Helper
 const withAuth = require('../../utils/auth');
 
-//GET ALL COMMENTS
+// Routes
+
+// Get comments
 router.get('/', (req, res) => {
+    // Access the Comment model and run .findAll() method to get all comments
     Comment.findAll()
+        // return the data as JSON formatted
         .then(dbCommentData => res.json(dbCommentData))
+        // if there is a server error, return that error
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
 });
 
-//POST A COMMENT
+// Post a new comment
 router.post('/', withAuth, (req, res) => {
-    // {
-    //     comment_text: "This is the comment",
-    //     user_id: 1,
-    //     post_id: 2
-    // }
-    Comment.create({
-        comment_text: req.body.comment_text,
-        user_id: req.session.user_id,
-        post_id: req.body.post_id
-    })
-        .then(dbCommentData => res.json(dbCommentData))
-        .catch(err => {
-            console.log(err);
-            res.status(400).json(err);
-        });
+    // check the session, and if it exists, create a comment
+    if (req.session) {
+        Comment.create({
+            comment_text: req.body.comment_text,
+            post_id: req.body.post_id,
+            // use the user id from the session
+            user_id: req.session.user_id
+        })
+            .then(dbCommentData => res.json(dbCommentData))
+            .catch(err => {
+                console.log(err);
+                res.status(400).json(err);
+            });
+    }
 });
 
-//DELETE A COMMENT
+// Delete a comment
 router.delete('/:id', withAuth, (req, res) => {
     Comment.destroy({
         where: {
@@ -40,7 +48,7 @@ router.delete('/:id', withAuth, (req, res) => {
     })
         .then(dbCommentData => {
             if (!dbCommentData) {
-                res.status(404).json({ message: 'Nope, try again' });
+                res.status(404).json({ message: 'No comment found with this id' });
                 return;
             }
             res.json(dbCommentData);
