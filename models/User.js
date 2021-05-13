@@ -7,6 +7,7 @@ const sequelize = require('../config/connection');
 // use bcrypt for password hashing
 const bcrypt = require('bcrypt');
 
+
 // create the User model
 class User extends Model {
     // set up a method to run on a user instance to check the password as provided
@@ -95,5 +96,7 @@ User.init(
         modelName: 'user'
     }
 );
+
+
 
 module.exports = User;
