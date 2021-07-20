@@ -1,4 +1,4 @@
-async function commentFormHandler(event) {
+async const commentFormHandler = (event) =>{
     event.preventDefault();
 
     const comment_text = document.querySelector('textarea[name="comment-body"]').value.trim();

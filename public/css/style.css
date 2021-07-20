@@ -1,9 +1,12 @@
 
 :root{
-    --primary-color: #120411;
+    --primary-color: indigo;
     --secondary-color: white;
   }
-
+  .navbar {
+    display: flex;
+    align-items: center;
+  }
   * {
       box-sizing: border-box;
     }
@@ -24,7 +27,23 @@
     }
 
     a:hover {
+      color: white;
+      background-color:#4B0082;
+      border: 1px solid black;
+      border-radius: 25px;
+    }
+    .signup {
       color: #4B0082;
+         border: 1px solid #4B0082;
+      border-radius: 35px;
+      padding: 10px;
+
+    }
+    .login {
+       color: #4B0082;
+         border: 1px solid #4B0082;
+      border-radius: 35px;
+      padding: 10px;
     }
 
     button {
@@ -39,7 +58,8 @@
     }
 
     button:hover {
-      background-color: #3486eb;
+      background-color: white;
+      color: indigo;
     }
 
     .post-list {
@@ -55,7 +75,7 @@
 
     textarea:focus, input:focus {
       outline: none;
-      border: 1px solid #3486eb;
+      border: 1px solid black;
     }
 
     textarea {
@@ -98,6 +118,8 @@
 
     .nav-bar {
       width: 75%;
+      display: flex;
+      align-items: center;
     }
 
     h1{
@@ -286,3 +308,50 @@
       padding: 1%;
       font-size: 110%;
     }
+
+    .signup-form {
+  border: 0.5px solid indigo;
+  border-radius: 15px;
+  padding: 5px;
+  margin-bottom:25px;
+  color: indigo;
+    }
+.login-form {
+   border: 0.5px solid indigo;
+  border-radius: 15px;
+  padding: 5px;
+  margin-bottom:25px;
+  color: indigo;
+
+}
+
+.new-post-form{
+   border: 0.5px solid indigo;
+  border-radius: 15px;
+  padding: 5px;
+  margin-bottom:25px;
+  color: indigo;
+
+}
+
+
+
+ #addBtn{
+      background-color: #4B0082;
+      border: 0;
+      padding: 1%;
+      color: white;
+      font-weight: bold;
+      transition: background-color .1s;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    #addBtn:hover {
+      background-color: white;
+      color: indigo;
+    }
+#writePost, #userProfile {
+  color: indigo;
+}
+
